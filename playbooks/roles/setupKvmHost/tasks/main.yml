@@ -1,0 +1,23 @@
+---
+# tasks file for jw74.kvmHost
+- name: install KVM and tools
+  apt:
+    name: ['qemu-kvm','libvirt-daemon', 'virt-manager']
+    state: latest
+  notify: restart libvirtd
+
+- name: creating dir for default storage pool
+  file:
+    path: "{{ roleVarsVirshStorageDefaultPool }}"
+    state: directory
+    owner: "{{ groupVarAnsibleUser }}"
+    group: "{{ groupVarAnsibleGroup }}"
+    mode: 0777
+
+- name: disable SELinux for qemu, because terraform provider wouldn't work
+  lineinfile:
+    path: /etc/libvirt/qemu.conf
+    regexp: '.*security_driver = ".*"'
+    line: 'security_driver = "none"'
+  notify: restart libvirtd
+...

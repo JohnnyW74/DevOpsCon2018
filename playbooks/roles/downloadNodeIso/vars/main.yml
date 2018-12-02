@@ -1,0 +1,6 @@
+---
+roleVarAlpineDownload: http://dl-cdn.alpinelinux.org/alpine/v3.8/releases/x86_64/alpine-virt-3.8.1-x86_64.iso
+roleVarAlpineDownloadChecksum: sha256:83ede521b174d99a0975c3653e7310b58075fa68fb773ed6995b974a44df60ce
+roleVarUbuntuDownload: https://cloud-images.ubuntu.com/releases/18.04/release/ubuntu-18.04-server-cloudimg-amd64.img
+roleVarUbuntuDownloadChecksum: sha256:5a80b6116471229482b5c5246b412e4716ac501e7aa3dd0f60b0debdcebbcfc1
+...

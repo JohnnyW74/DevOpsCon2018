@@ -1,0 +1,46 @@
+---
+- name: Add an Apt signing key, will not download if present
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+  become: yes
+
+- apt_repository:
+    repo: deb https://apt.kubernetes.io/ kubernetes-xenial main
+    state: present
+  become: yes
+
+- name: install/update kubectl
+  apt:
+    name: kubectl
+    state: latest
+    update_cache: yes
+  become: yes
+
+- name: git checkout https://github.com/ahmetb/kubectx
+  git:
+    repo: https://github.com/ahmetb/kubectx.git
+    dest: "/home/{{ groupVarAnsibleUser }}/.kubectx"
+
+- name: install/update pkg-config
+  apt:
+    name: pkg-config
+    state: latest
+  become: yes
+
+- name: set COMPDIR
+  command: pkg-config --variable=completionsdir bash-completion
+  register: bashCompletion 
+
+- name : setting link for bash completion
+  file:
+    dest: "{{ bashCompletion.stdout }}/{{ item }}"
+    src: "/home/{{ groupVarAnsibleUser }}/.kubectx/completion/{{ item }}.bash"
+    state: link
+    owner: root
+    group: root
+  become: yes
+  with_items:
+    - kubens
+    - kubectx
+...

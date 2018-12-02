@@ -1,0 +1,62 @@
+---
+- name: installing ansible-lint, ansible-vault
+  pip:
+    name: ['pip', 'ansible', 'ansible-lint', 'ansible-vault']
+
+- name: create group for ansiblemaster
+  group:
+    name: "{{ groupVarAnsibleGroup }}"
+    gid: "{{ groupVarAnsibleGid }}"
+    state: present
+  become: yes
+
+- name: create user for ansible host
+  user:
+    name: "{{ groupVarAnsibleUser }}"
+    comment: "{{ groupVarAnsibleUser }}"
+    uid: "{{ groupVarAnsibleUid }}"
+    group: "{{ groupVarAnsibleGid }}"
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+  become: yes
+
+- name: generate logrotate for ansible
+  template:
+    src: ansible_logrotate.j2
+    dest: /etc/logrotate.d/ansible
+    owner: root
+    group: root
+    mode: 0644
+  become: yes
+
+- name: generate ansible.cfg
+  template:
+    src: ansible.j2.cfg
+    dest: "/home/{{ groupVarAnsibleUser }}/.ansible.cfg"
+    owner: "{{ groupVarAnsibleUser }}"
+    group: "{{ groupVarAnsibleGroup }}"
+    mode: 0600
+
+- name: creating sudo privilege for ansible
+  template:
+    src: user.j2.sudo
+    dest: "/etc/sudoers.d/{{ groupVarAnsibleUser }}"
+    owner: root
+    group: root
+    mode: 0600
+  become: yes
+
+- name: creating needed dirs
+  file:
+    path: "/home/{{ groupVarAnsibleUser }}/{{ item }}"
+    state: directory
+    owner: "{{ groupVarAnsibleUser }}"
+    group: "{{ groupVarAnsibleGroup }}"
+    mode: 0700
+  with_items:
+    - var
+    - var/log
+    - .ansible
+    - .ansible/tmp
+...

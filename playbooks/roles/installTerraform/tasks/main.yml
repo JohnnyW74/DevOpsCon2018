@@ -1,0 +1,51 @@
+---
+- name: creating subdirectory for terraform provider
+  file:
+    path: "{{ item }}"
+    mode: 0700
+    recurse: yes
+    owner: "{{ groupVarAnsibleUser }}"
+    group: "{{ groupVarAnsibleGroup }}"
+  with_items:
+    - "{{ hostVarAnsibleUserHome }}/.terraform.d/plugins/"
+    - "{{ hostVarAnsibleUserHome }}/bin/"
+
+- name: creating temporary file dir
+  file:
+    path: "{{ role_path }}/files/"
+    mode: 0775
+    recurse: yes
+    owner: "{{ groupVarAnsibleUser }}"
+    group: "{{ groupVarAnsibleGroup }}"
+
+- name: Download terraform with check (sha256) and terraform-provider-libvirt
+  get_url:
+    url: "{{ item.src }}"
+    dest: "{{ item.dst }}"
+    checksum: "{{ item.cks | default(omit) }}"
+    owner: "{{ groupVarAnsibleUser }}" 
+    group: "{{ groupVarAnsibleGroup }}"
+    mode: 0600
+  with_items:
+    - { src: "{{ roleVarTerraformDownload }}", dst: "{{ role_path }}/files/{{ roleVarTerraformDownload | basename }}", cks: "{{ roleVarTerraformDownloadChecksum }}" }
+    - { src: "{{ roleVarTerraformProviderLibvirtDownload }}", dst: "{{ role_path }}/files/{{ roleVarTerraformProviderLibvirtDownload | basename }}" }
+
+- name: Extract terraform and terraform-provider-libvirt
+  unarchive:
+    src: "{{ item.src }}"
+    dest: "{{ item.dst }}"
+    mode: 0700
+    owner: "{{ groupVarAnsibleUser }}"
+    group: "{{ groupVarAnsibleGroup }}"
+  with_items:
+    - { src: "{{ role_path }}/files/{{ roleVarTerraformDownload | basename }}", dst: "{{ hostVarAnsibleUserHome }}/bin/" }
+    - { src: "{{ role_path }}/files/{{ roleVarTerraformProviderLibvirtDownload | basename }}", dst: "{{ hostVarAnsibleUserHome }}/.terraform.d/plugins/" }
+
+- name: deleting zipfile of terraform and terraform-provider-libvirt
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items:
+    - "{{ role_path }}/files/{{ roleVarTerraformDownload | basename }}"
+    - "{{ role_path }}/files/{{ roleVarTerraformProviderLibvirtDownload | basename }}"
+...

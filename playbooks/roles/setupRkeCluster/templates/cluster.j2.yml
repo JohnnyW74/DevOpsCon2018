@@ -1,0 +1,142 @@
+nodes: {% for host in groups['k8s-master'] %}  
+- address: {{ ansible_default_ipv4.address }}
+  port: "22"
+  internal_address: {{ ansible_default_ipv4.address }}
+  role:
+  - controlplane
+  - etcd
+  user:  {{ ansible_user_id }}
+  docker_socket: /var/run/docker.sock
+  ssh_key: ""
+  ssh_key_path: ""
+  labels: {}
+{% endfor %}
+{% for host in groups['k8s-worker'] %}
+- address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
+  port: "22"
+  internal_address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
+  role:
+  - worker
+  user: {{ ansible_user_id }}
+  docker_socket: /var/run/docker.sock
+  ssh_key: ""
+  ssh_key_path: ""
+  labels: {}
+{% endfor %}
+services:
+  etcd:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+    external_urls: []
+    ca_cert: ""
+    cert: ""
+    key: ""
+    path: ""
+    snapshot: false
+    retention: ""
+    creation: ""
+  kube-api:
+    image: ""
+    extra_args:
+      requestheader-client-ca-file: /etc/kubernetes/ssl/kube-ca.pem
+      requestheader-extra-headers-prefix: X-Remote-Extra-
+      requestheader-group-headers: X-Remote-Group
+      requestheader-username-headers: X-Remote-User
+      proxy-client-cert-file: /etc/kubernetes/ssl/kube-proxy.pem
+      proxy-client-key-file: /etc/kubernetes/ssl/kube-proxy-key.pem
+      requestheader-allowed-names: system:kube-proxy
+    extra_binds: []
+    extra_env: []
+    service_cluster_ip_range: 10.43.0.0/16
+    service_node_port_range: "80-32767"
+    pod_security_policy: false
+  kube-controller:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+    cluster_cidr: 10.42.0.0/16
+    service_cluster_ip_range: 10.43.0.0/16
+  scheduler:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+  kubelet:
+    image: ""
+    extra_args:
+      authentication-token-webhook: true
+    extra_binds: []
+    extra_env: []
+    cluster_domain: {{cluster_domain}}
+    infra_container_image: ""
+    cluster_dns_server: 10.43.0.10
+    fail_swap_on: false
+  kubeproxy:
+    image: ""
+    extra_args: {}
+    extra_binds: []
+    extra_env: []
+network:
+  plugin: canal
+  options:
+    canal_iface: {{canal_iface}}
+authentication:
+  strategy: x509
+  options: {}
+  sans: []
+addons: ""
+system_images:
+  etcd: "{{etcd_image | default('')}}"
+  alpine: "{{alpine_image | default('')}}"
+  nginx_proxy: "{{nginx_proxy_image | default('')}}"
+  cert_downloader: "{{cert_downloader_image | default('')}}"
+  kubernetes_services_sidecar: "{{kubernetes_services_sidecar_image | default('')}}"
+  kubedns: "{{kubedns_image | default('')}}"
+  dnsmasq: "{{dnsmasq_image | default('')}}"
+  kubedns_sidecar: "{{kubedns_sidecar_image | default('')}}"
+  kubedns_autoscaler: "{{kubedns_autoscaler_image | default('')}}"
+  kubernetes: "{{kubernetes_image | default('')}}"
+  flannel: "{{flannel_image | default('')}}"
+  flannel_cni: "{{flannel_cni_image | default('')}}"
+  calico_node: "{{calico_node_image | default('')}}"
+  calico_cni: "{{calico_cni_image | default('')}}"
+  calico_controllers: ""
+  calico_ctl: "{{calico_ctl_image | default('')}}"
+  canal_node: "{{canal_node_image | default('')}}"
+  canal_cni: "{{canal_cni_image | default('')}}"
+  canal_flannel: "{{canal_flannel_image | default('')}}"
+  wave_node: "{{wave_node_image | default('')}}"
+  weave_cni: "{{weave_cni_image | default('')}}"
+  pod_infra_container: "{{pod_infra_container_image | default('')}}"
+  ingress: "{{ingress_image | default('')}}"
+  ingress_backend: "{{ingress_backend_image | default('')}}"
+ssh_key_path: ""
+ssh_agent_auth: false
+authorization:
+  mode: rbac
+  options: {}
+ignore_docker_version: true
+kubernetes_version: "{{kubernetes_version | default('')}}"
+private_registries: []
+ingress:
+  provider: ""
+  options: {}
+  node_selector: {}
+  extra_args: {}
+cluster_name: ""
+cloud_provider:
+  name: ""
+prefix_path: ""
+addon_job_timeout: 0
+bastion_host:
+  address: ""
+  port: ""
+  user: ""
+  ssh_key: ""
+  ssh_key_path: ""
+monitoring:
+  provider: ""
+  options: {}

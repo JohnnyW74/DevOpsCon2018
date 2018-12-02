@@ -1,0 +1,23 @@
+---
+- name: Add an Apt signing key, will not download if present
+  apt_key:
+    id: 0EBFCD88
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+    state: present
+
+- name: install/update docker-ce
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: yes
+
+- name: start docker set him to autostart
+  systemd:
+    name: docker
+    state: restarted
+    enabled: yes
+...

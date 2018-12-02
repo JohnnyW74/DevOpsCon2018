@@ -1,0 +1,83 @@
+---
+- name: dowload rke
+  get_url:
+    url: "{{ download_rke }}"
+    dest: "{{ role_path }}/files/{{ download_rke | basename }}"
+    checksum: "{{ download_rke_sha256 }}"
+    mode: 0700
+  delegate_to: localhost
+  tags: downloadRke
+
+- name: setup rke
+  copy:
+    src: rke_linux-amd64
+    dest: /usr/bin/rke
+    mode: 0700
+  become: true  
+  when: "'k8s-master' in group_names"
+
+- name: create rke directory
+  file: 
+    path: "{{docker_service_dir}}/rke/"
+    state: directory
+  when: "'k8s-master' in group_names"
+
+- name: template cluster config file
+  template:
+    src: cluster.j2.yml
+    dest: "{{docker_service_dir}}/rke/cluster.yml"
+  when: "'k8s-master' in group_names"
+
+- name: Create a 2048-bit SSH key for user root
+  user:
+    name: root
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: .ssh/id_rsa
+
+- name: correct sshd-config
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
+  with_items:
+    - { regexp: "^.*PermitRootLogin.*", line: "PermitRootLogin yes" }
+    - { regexp: "^.*AllowTcpForwarding.*", line: "AllowTcpForwarding yes" }
+    - { regexp: "^.*PermitTunnel.*", line: "PermitTunnel yes" }
+
+- name: restart sshd
+  systemd:
+    name: sshd
+    state: restarted
+    daemon_reload: yes
+
+- name: fetch public-key
+  fetch:
+    src: /root/.ssh/id_rsa.pub
+    dest: "{{ role_path }}/files/"
+    flat: yes
+  when: "'k8s-master' in group_names"
+
+- name: ssh-copy-id
+  authorized_key:
+    user: root
+    state: present
+    key: "{{ lookup('file', 'id_rsa.pub') }}"
+
+- name: create cluster
+  command: "rke up --config {{docker_service_dir}}/rke/cluster.yml"
+  register: rke_up_out
+  when: "'k8s-master' in group_names"
+
+- name: show rke output
+  debug:
+    var: rke_up_out
+  when: "'k8s-master' in group_names"  
+
+- name: download kube config
+  fetch:
+    src: "{{docker_service_dir}}/rke/kube_config_cluster.yml"
+    dest: ~/.kube/config
+    flat: yes
+  when: "'k8s-master' in group_names"
+...

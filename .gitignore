@@ -1,0 +1,11 @@
+*.swp
+*.retry
+*.zip
+*.tar.gz
+*.iso
+*.qcow2
+playbooks/roles/downloadNodeIso/files/
+playbooks/roles/setupRkeCluster/files/id_rsa.pub
+*.tfstate
+*.tfstate.backup
+.terraform

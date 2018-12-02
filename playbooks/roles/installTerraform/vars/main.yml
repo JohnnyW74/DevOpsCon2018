@@ -1,0 +1,5 @@
+---
+roleVarTerraformDownload: https://releases.hashicorp.com/terraform/0.11.10/terraform_0.11.10_linux_amd64.zip
+roleVarTerraformDownloadChecksum: sha256:43543a0e56e31b0952ea3623521917e060f2718ab06fe2b2d506cfaa14d54527
+roleVarTerraformProviderLibvirtDownload: https://github.com/dmacvicar/terraform-provider-libvirt/releases/download/v0.5.0/terraform-provider-libvirt-0.5.0.Ubuntu_18.04.amd64.tar.gz
+...

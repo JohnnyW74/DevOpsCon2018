@@ -1,0 +1,6 @@
+---
+groupVarAnsibleGroup: swalker
+groupVarAnsibleGid: 1000
+groupVarAnsibleUser: swalker
+groupVarAnsibleUid: 1000
+...
