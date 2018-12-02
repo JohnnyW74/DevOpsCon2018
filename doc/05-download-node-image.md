@@ -6,3 +6,5 @@ Befehl: ```ansible-playbook downloadNodeIso.yml```
 
 Link zur Rolle:
 https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/downloadNodeIso/
+
+[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/06-install-terraform.md)

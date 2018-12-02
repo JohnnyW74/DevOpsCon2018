@@ -20,3 +20,5 @@ Befehl:```ansible-playbook installDocker.yml```
 
 Link zu Sourcen:
 https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/installDocker/
+
+[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/10-create-k8s-cluster.md)

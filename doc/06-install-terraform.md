@@ -9,3 +9,5 @@ Befehl: ```ansible-playbook installTerraform.yml```
 
 Link zur Rolle:
 https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/installTerraform/
+
+[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/07-create-single-node.md)

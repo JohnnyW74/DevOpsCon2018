@@ -19,3 +19,5 @@ https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/setupKvmHost/
 [1]: https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine
 [2]: https://en.wikipedia.org/wiki/QEMU
 [3]: https://serverfault.com/questions/208693/difference-between-kvm-and-qemu
+
+[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/05-download-node-image.md)

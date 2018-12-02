@@ -17,3 +17,5 @@ Löschen des Nodes ```terraform destroy```
 
 Link zu Sourcen:
 https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/single_node/
+
+[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md)
