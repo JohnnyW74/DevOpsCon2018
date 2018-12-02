@@ -1,4 +1,4 @@
-Talk on DevOpsCon 2018 i munich
+Talk on DevOpsCon 2018 in munich
 =
 
 https://devopsconference.de/live-demo-slideless/build-your-own-production-kubernetes-cluster-on-a-workstation/
