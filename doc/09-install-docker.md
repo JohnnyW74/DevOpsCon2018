@@ -1,7 +1,8 @@
 installieren von Docker auf den Nodes
-=
+===
 
-Eintragen der Server im Inventory
++ Eintragen der Server im Inventory
+
 ```
 vi inventories/hosts.yml
 
@@ -15,10 +16,10 @@ vi inventories/hosts.yml
             192.168.122.6:
 ```
 
-Befehl:```ansible-playbook installDocker.yml```
+```ansible-playbook installDocker.yml```
 
 
-Link zu Sourcen:
-https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/installDocker/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/installDocker/
 
-[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/10-create-k8s-cluster.md)
+[zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/10-create-k8s-cluster.md)
+

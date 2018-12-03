@@ -1,10 +1,11 @@
 download Node-Image
-=
-Cloud-Images Ubuntu: https://cloud-images.ubuntu.com/releases/18.04/release/
+===
 
-Befehl: ```ansible-playbook downloadNodeIso.yml```
+* Cloud-Images Ubuntu: https://cloud-images.ubuntu.com/releases/18.04/release/
 
-Link zur Rolle:
-https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/downloadNodeIso/
+```ansible-playbook downloadNodeIso.yml```
 
-[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/06-install-terraform.md)
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/downloadNodeIso/
+
+[zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/04-install-kvm.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/06-install-terraform.md)
+

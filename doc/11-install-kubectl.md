@@ -1,13 +1,16 @@
 installieren von kubectl & co
-=
+===
 
-Was sind kubectx und kubens?
+* Was sind kubectx und kubens?
+
 > Fast way to switch between clusters and namespaces in kubectl[1]
 
-Befehl:```ansible-playbook setupRkeCluster.yml```
+```ansible-playbook setupRkeCluster.yml```
 
 
-Link zu Sourcen:
-https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/setupRkeCluster/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/setupRkeCluster/
 
 [1]: https://github.com/ahmetb/kubectx
+
+[zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/10-create-k8s-cluster.md)
+

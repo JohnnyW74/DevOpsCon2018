@@ -1,7 +1,6 @@
 erzeugen von 3 Nodes für K8s Cluster
-=
+===
 
-Befehle: 
 ```
 terraform init
 terraform plan
@@ -15,7 +14,7 @@ terraform apply
 > worker1: 192.168.122.36
  >worker2: 192.168.122.6
 
-Link zu Sourcen:
-https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/multi_node/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/multi_node/
 
-[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/09-install-docker.md)
+[zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/07-create-single-node.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/09-install-docker.md)
+

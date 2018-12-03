@@ -1,13 +1,15 @@
 installieren von Terraform & Provider
-=
+===
 
-Was ist Terraform: https://www.terraform.io/intro/index.html
+* Was ist Terraform?
 
-Terraform Provider für libvirt: https://github.com/dmacvicar/terraform-provider-libvirt
+  > Terraform is an infrastructure as code software by HashiCorp
 
-Befehl: ```ansible-playbook installTerraform.yml```
+* Terraform Provider für libvirt: https://github.com/dmacvicar/terraform-provider-libvirt
 
-Link zur Rolle:
-https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/installTerraform/
+```ansible-playbook installTerraform.yml```
 
-[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/07-create-single-node.md)
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/installTerraform/
+
+[zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/05-download-node-image.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/07-create-single-node.md)
+

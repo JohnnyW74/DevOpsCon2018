@@ -1,7 +1,6 @@
 erzeugen eines single Nodes mit Terraform & libvirt
-=
+===
 
-Befehle: 
 ```
 terraform init
 terraform plan
@@ -11,11 +10,11 @@ terraform apply
 >Outputs:
 >ip = 192.168.122.218
 
-Verfiy Node ```ssh root@192.168.122.218```
+* Verfiy Node ```ssh root@192.168.122.218```
 
-Löschen des Nodes ```terraform destroy```
+* Löschen des Nodes ```terraform destroy```
 
-Link zu Sourcen:
-https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/single_node/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/single_node/
 
-[weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md)
+[zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/06-install-terraform.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md)
+
