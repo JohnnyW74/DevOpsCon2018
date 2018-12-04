@@ -5,7 +5,7 @@ download Node-Image
 
 ```ansible-playbook downloadNodeIso.yml```
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/downloadNodeIso/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/downloadNodeIso/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/04-install-kvm.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/06-install-terraform.md)
 

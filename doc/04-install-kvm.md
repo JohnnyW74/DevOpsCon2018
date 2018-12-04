@@ -15,7 +15,7 @@ installieren von kvm
 
 ```ansible-playbook setupKvmHost.yml```
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/setupKvmHost/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/setupKvmHost/
 
 [1]: https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine
 [2]: https://en.wikipedia.org/wiki/QEMU

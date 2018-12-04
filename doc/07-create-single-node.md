@@ -14,7 +14,7 @@ terraform apply
 
 * Löschen des Nodes ```terraform destroy```
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/single_node/
+benutzte terraform.tf https://github.com/JohnnyW74/DevOpsCon2018/blob/master/terraform-cfg/single_node/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/06-install-terraform.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md)
 

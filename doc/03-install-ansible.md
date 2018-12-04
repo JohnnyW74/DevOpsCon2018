@@ -9,7 +9,7 @@ installieren von Ansible
 
 ```ansible-playbook setupAnsibleHost.yml -i inventories/hosts.yml```
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/setupAnsibleHost/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/setupAnsibleHost/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/02-agenda.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/04-install-kvm.md)
 

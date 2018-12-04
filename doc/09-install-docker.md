@@ -15,11 +15,14 @@ vi inventories/hosts.yml
             192.168.122.36:
             192.168.122.6:
 ```
+* auch möglich diesen Schritt zu automatisieren z.B.:
+** python-script welches aus libvirt heraus ansible-inventorys erzeugt
+** hook in terraform
 
 ```ansible-playbook installDocker.yml```
 
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/installDocker/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/role/installDocker/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/10-create-k8s-cluster.md)
 

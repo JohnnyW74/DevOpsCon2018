@@ -8,7 +8,7 @@ installieren von kubectl & co
 ```ansible-playbook setupRkeCluster.yml```
 
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/setupRkeCluster/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/role/setupRkeCluster/
 
 [1]: https://github.com/ahmetb/kubectx
 

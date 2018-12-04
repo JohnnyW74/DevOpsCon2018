@@ -7,10 +7,10 @@ erzeugen des Clusters mit RKE
 
 * Wir erzeugen in dieser Demo einen Cluster mit einem Master und zwei Workern
 
-Befehl:```ansible-playbook setupRkeCluster.yml```
+```ansible-playbook setupRkeCluster.yml```
 
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/role/setupRkeCluster/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/role/setupRkeCluster/
 
 [1]: https://github.com/rancher/rke
 

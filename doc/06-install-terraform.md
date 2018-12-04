@@ -9,7 +9,7 @@ installieren von Terraform & Provider
 
 ```ansible-playbook installTerraform.yml```
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/playbooks/roles/installTerraform/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/installTerraform/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/05-download-node-image.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/07-create-single-node.md)
 

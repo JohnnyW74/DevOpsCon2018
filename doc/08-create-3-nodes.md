@@ -14,7 +14,9 @@ terraform apply
 > worker1: 192.168.122.36
  >worker2: 192.168.122.6
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/terraform-cfg/multi_node/
+* mögliche Verbesserung: Nutzung von terraform modules
+
+benutzte terraform.tf https://github.com/JohnnyW74/DevOpsCon2018/blob/master/terraform-cfg/multi_node/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/07-create-single-node.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/09-install-docker.md)
 
