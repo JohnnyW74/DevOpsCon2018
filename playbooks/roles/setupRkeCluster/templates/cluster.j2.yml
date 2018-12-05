@@ -1,7 +1,7 @@
 nodes: {% for host in groups['k8s-master'] %}  
-- address: {{ ansible_default_ipv4.address }}
+- address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
   port: "22"
-  internal_address: {{ ansible_default_ipv4.address }}
+  internal_address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
   role:
   - controlplane
   - etcd

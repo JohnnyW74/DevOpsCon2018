@@ -2,6 +2,7 @@
 - name: installing ansible-lint, ansible-vault
   pip:
     name: ['pip', 'ansible', 'ansible-lint', 'ansible-vault']
+    state: latest
 
 - name: create group for ansiblemaster
   group:
