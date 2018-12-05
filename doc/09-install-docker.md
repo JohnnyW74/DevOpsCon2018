@@ -22,7 +22,7 @@ vi inventories/hosts.yml
 ```ansible-playbook installDocker.yml```
 
 
-benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/role/installDocker/
+benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/installDocker/
 
 [zurück](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/08-create-3-nodes.md) [weiter](https://github.com/JohnnyW74/DevOpsCon2018/blob/master/doc/10-create-k8s-cluster.md)
 
