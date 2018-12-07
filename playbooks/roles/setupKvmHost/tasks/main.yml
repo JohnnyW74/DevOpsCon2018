@@ -1,5 +1,4 @@
 ---
-# tasks file for jw74.kvmHost
 - name: install KVM and tools
   apt:
     name: ['qemu-kvm','libvirt-daemon', 'virt-manager']

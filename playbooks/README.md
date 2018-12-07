@@ -14,7 +14,7 @@ To setup your own ansible host you have to run:
 ```
 sudo apt install python3-pip
 pip3 install ansible
-ansible-playbook jw74.ansibleHost.yml -i inventories/hosts.yml -e 'ansible_python_interpreter=/usr/bin/python3'
+ansible-playbook setupAnsibleHost.yml -i inventories/hosts.yml -e 'ansible_python_interpreter=/usr/bin/python3'
 ```
 
 Author Information
