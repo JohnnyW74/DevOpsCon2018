@@ -7,7 +7,7 @@ installieren von Ansible
 
 * oder https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html
 
-```ansible-playbook setupAnsibleHost.yml -i inventories/hosts.yml```
+```ansible-playbook setupAnsibleHost.yml -i hosts```
 
 benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/setupAnsibleHost/
 

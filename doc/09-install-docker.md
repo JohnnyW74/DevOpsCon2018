@@ -4,7 +4,7 @@ installieren von Docker auf den Nodes
 + Eintragen der Server im Inventory
 
 ```
-vi inventories/hosts.yml
+vi host
 
         k8s-master:
           hosts:
@@ -19,7 +19,7 @@ vi inventories/hosts.yml
 ** python-script welches aus libvirt heraus ansible-inventorys erzeugt
 ** hook in terraform
 
-```ansible-playbook installDocker.yml```
+```ansible-playbook installDocker.yml --limit kvm```
 
 
 benutzte ansible-role https://github.com/JohnnyW74/DevOpsCon2018/blob/master/playbooks/roles/installDocker/
