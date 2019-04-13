@@ -1,6 +1,6 @@
 ---
 cluster_domain: "cluster.local"
 canal_iface: ens3
-download_rke: https://github.com/rancher/rke/releases/download/v0.1.12/rke_linux-amd64
-download_rke_sha256: sha256:e5d730d37e7d98092f8576f5c56996a14e0ed6033ff8eec8d02484b061773199
+download_rke: https://github.com/rancher/rke/releases/download/v0.2.1/rke_linux-amd64
+download_rke_sha256: sha256:716f66895cdd8c3b7f6b0db40413ee4333173e1a51c9f50dba17d8c4f1e606ca
 ...
