@@ -1,5 +1,6 @@
 ---
-- hosts: kvm
+- hosts: kvm,local
+  become: true
   roles:
     - installDocker
 ...
