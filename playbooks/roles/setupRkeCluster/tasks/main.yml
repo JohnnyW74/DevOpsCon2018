@@ -14,19 +14,19 @@
     dest: /usr/bin/rke
     mode: 0700
   become: true  
-  when: "'k8s-master' in group_names"
+  when: "'k8s_master' in group_names"
 
 - name: create rke directory
   file: 
     path: "{{docker_service_dir}}/rke/"
     state: directory
-  when: "'k8s-master' in group_names"
+  when: "'k8s_master' in group_names"
 
 - name: template cluster config file
   template:
     src: cluster.j2.yml
     dest: "{{docker_service_dir}}/rke/cluster.yml"
-  when: "'k8s-master' in group_names"
+  when: "'k8s_master' in group_names"
 
 - name: Create a 2048-bit SSH key for user root
   user:
@@ -56,7 +56,7 @@
     src: /root/.ssh/id_rsa.pub
     dest: "{{ role_path }}/files/"
     flat: yes
-  when: "'k8s-master' in group_names"
+  when: "'k8s_master' in group_names"
 
 - name: ssh-copy-id
   authorized_key:
@@ -67,17 +67,17 @@
 - name: create cluster
   command: "rke up --config {{docker_service_dir}}/rke/cluster.yml"
   register: rke_up_out
-  when: "'k8s-master' in group_names"
+  when: "'k8s_master' in group_names"
 
 - name: show rke output
   debug:
     var: rke_up_out
-  when: "'k8s-master' in group_names"  
+  when: "'k8s_master' in group_names"  
 
 - name: download kube config
   fetch:
     src: "{{docker_service_dir}}/rke/kube_config_cluster.yml"
     dest: ~/.kube/config
     flat: yes
-  when: "'k8s-master' in group_names"
+  when: "'k8s_master' in group_names"
 ...

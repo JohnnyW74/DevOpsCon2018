@@ -15,11 +15,11 @@ all:
         docker_service_dir: /root/docker
       children:
 
-        k8s-master:
+        k8s_master:
           hosts:
             192.168.122.214:
 
-        k8s-worker:
+        k8s_worker:
           hosts:
             192.168.122.189:
             192.168.122.236:

@@ -1,4 +1,4 @@
-nodes: {% for host in groups['k8s-master'] %}  
+nodes: {% for host in groups['k8s_master'] %}  
 - address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
   port: "22"
   internal_address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
@@ -11,7 +11,7 @@ nodes: {% for host in groups['k8s-master'] %}
   ssh_key_path: ""
   labels: {}
 {% endfor %}
-{% for host in groups['k8s-worker'] %}
+{% for host in groups['k8s_worker'] %}
 - address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
   port: "22"
   internal_address: {{ hostvars[host]['ansible_default_ipv4']['address'] }}
