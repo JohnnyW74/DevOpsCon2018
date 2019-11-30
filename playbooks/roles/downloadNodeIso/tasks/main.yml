@@ -7,17 +7,8 @@
     group: "{{ groupVarAnsibleGroup }}"
     mode: 0755
   tags:
-    - alpine
     - ubuntu
     
-- name: Download Alpine.iso
-  get_url:
-    url: "{{ roleVarAlpineDownload }}"
-    dest: "{{ role_path }}/files/{{ roleVarAlpineDownload | basename }}"
-    checksum: "{{ roleVarAlpineDownloadChecksum }}"
-    mode: 0666
-  tags: alpine
-
 - name: Download Ubuntu.iso
   get_url:
     url: "{{ roleVarUbuntuDownload }}"

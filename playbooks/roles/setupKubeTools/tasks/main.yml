@@ -20,7 +20,7 @@
 - name: git checkout https://github.com/ahmetb/kubectx
   git:
     repo: https://github.com/ahmetb/kubectx.git
-    dest: "/home/{{ groupVarAnsibleUser }}/.kubectx"
+    dest: "/home/{{ ansible_user_id }}/.kubectx"
 
 - name: install/update pkg-config
   apt:
@@ -35,11 +35,18 @@
 - name : setting link for bash completion
   file:
     dest: "{{ bashCompletion.stdout }}/{{ item }}"
-    src: "/home/{{ groupVarAnsibleUser }}/.kubectx/completion/{{ item }}.bash"
+    src: "/home/{{ ansible_user_id }}/.kubectx/completion/{{ item }}.bash"
     state: link
-    owner: root
-    group: root
   become: yes
+  with_items:
+    - kubens
+    - kubectx
+
+- name : setting link for ~/bin
+  file:
+    dest: "/home/{{ ansible_user_id }}/bin/{{ item }}"
+    src: "/home/{{ ansible_user_id }}/.kubectx/{{ item }}"
+    state: link
   with_items:
     - kubens
     - kubectx
